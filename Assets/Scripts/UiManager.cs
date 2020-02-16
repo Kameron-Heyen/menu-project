@@ -10,6 +10,7 @@ public class UiManager : MonoBehaviour
     public SteamVR_LaserPointer laserPointer;
 
     public float smooth = 1f;
+
     // Game object
     public GameObject UiPanel;
 
@@ -38,6 +39,12 @@ public class UiManager : MonoBehaviour
     private GameObject selectedObject;
     private GameObject selectedWeapon;
 
+    private int track = 0;
+    private float volume = 0.5f;
+    private int skybox = 0;
+    private int objInt = 0;
+    private int weaponInt = 0;
+
     void Awake()
     {
         laserPointer.PointerClick += PointerClick;
@@ -45,19 +52,87 @@ public class UiManager : MonoBehaviour
 
     public void PointerClick(object sender, PointerEventArgs e)
     {
+        // rotate panel around controller
         if (e.target.name == "SettingsButton")
         {
             onSettingsButtonClick();
         } else if (e.target.name == "ConfirmButton")
         {
             onConfirmClick();
-        } else if (e.target.name == "WeaponsButton")
+        } 
+
+         // create objects
+        else if (e.target.name == "WeaponsButton")
         {
             OnCreateWeaponClick();
         } else if (e.target.name == "ObjectsButton")
         {
             OnCreateObjectClick();
         }
+        
+        // music
+        else if (e.target.name == "PreviousTrack")
+        {
+            track = track -1;
+            if (track == -1) { track = 2; }
+            OnMusicSelection(track);
+        } else if (e.target.name == "SkipTrack") {
+            track = track+1;
+            if (track == 3) { track = 0; }
+            OnMusicSelection(track);
+        }
+
+        // volume
+        else if (e.target.name == "VolumeDown") {
+            if (volume > 0.09f) {
+                 volume = volume-0.1f;
+                 OnMusicVolumeChange(volume);
+            }
+        } else if (e.target.name == "VolumeUp") {
+            if (volume < 0.95f) {
+                 volume = volume+0.1f;
+                 OnMusicVolumeChange(volume);
+            }
+        }
+
+        // skybox
+        else if (e.target.name == "PreviousSkybox") {
+            skybox = skybox - 1;
+            if (skybox == -1) { skybox = 2; }
+            OnSkyboxSelection(skybox);
+
+        } else if (e.target.name == "NextSkybox") {
+            skybox = skybox + 1;
+            if (skybox == 3) { skybox = 0; }
+            OnSkyboxSelection(skybox);
+        }
+
+
+        // object selection
+        else if (e.target.name == "LeftObjectButton") {
+            objInt = objInt - 1;
+            if (objInt == -1) { objInt = 2; }
+            OnObjectSelection(objInt);
+        }
+        else if (e.target.name == "RightObjectButton") {
+            objInt = objInt + 1;
+            if (objInt == 3) { objInt = 0; }
+            OnObjectSelection(objInt);
+        }
+
+        // weapon selection
+        else if (e.target.name == "LeftWeaponButton") {
+            weaponInt = weaponInt - 1;
+            if (weaponInt == -1) { weaponInt = 2; }
+            OnWeaponSelection(weaponInt);
+        }
+        else if (e.target.name == "RightWeaponButton") {
+            weaponInt = weaponInt + 1;
+            if (weaponInt == 3) { weaponInt = 0; }
+            OnWeaponSelection(weaponInt);
+        }
+
+       
     }
 
     void Start()
@@ -72,17 +147,20 @@ public class UiManager : MonoBehaviour
     {
     }
 
-    public void OnSkyboxSelection(int skybox)
+    public void OnSkyboxSelection(int newSkybox)
     {
-        if (skybox == 0)
+        if (newSkybox == 0)
         {
             RenderSettings.skybox = skyOne;
-        } else if (skybox == 1)
+            GameObject.Find("SelectedSkybox").GetComponentInChildren<Text>().text = "SB1";
+        } else if (newSkybox == 1)
         {
             RenderSettings.skybox = skyTwo;
-        } else if (skybox == 2)
+            GameObject.Find("SelectedObject").GetComponentInChildren<Text>().text = "SB2";
+        } else if (newSkybox == 2)
         {
             RenderSettings.skybox = skyThree;
+            GameObject.Find("SelectedObject").GetComponentInChildren<Text>().text = "SB3";
         }
     }
 
@@ -93,22 +171,27 @@ public class UiManager : MonoBehaviour
             musicSource.Stop();
             musicSource = musicTrack1;
             musicSource.Play();
+            GameObject.Find("SelectedTrack").GetComponentInChildren<Text>().text = "Track 1";
         } else if (music == 1)
         {
             musicSource.Stop();
             musicSource = musicTrack2;
             musicSource.Play();
+            GameObject.Find("SelectedTrack").GetComponentInChildren<Text>().text = "Track 2";
         } else if (music == 2)
         {
             musicSource.Stop();
             musicSource = musicTrack3;
             musicSource.Play();
+            GameObject.Find("SelectedTrack").GetComponentInChildren<Text>().text = "Track 3";
         }
     }
 
-    public void OnMusicVolumeChange(float volume)
+    public void OnMusicVolumeChange(float newVolume)
     {
-        musicSource.volume = volume;
+        musicSource.volume = newVolume;
+        string vol = (newVolume * 100).ToString("0\\%");
+        GameObject.Find("CurrentVolume").GetComponentInChildren<Text>().text = vol;
     }
 
     public void OnObjectSelection(int obj)
@@ -116,14 +199,17 @@ public class UiManager : MonoBehaviour
         if (obj == 0)
         {
             selectedObject = tree;
+            GameObject.Find("SelectedObject").GetComponentInChildren<Text>().text = "Tree";
         }
         if (obj == 1)
         {
             selectedObject = house;
+            GameObject.Find("SelectedObject").GetComponentInChildren<Text>().text = "House";
         }
         if (obj == 2)
         {
             selectedObject = skyScraper;
+            GameObject.Find("SelectedObject").GetComponentInChildren<Text>().text = "Skyscraper";
         }
     }
 
@@ -132,14 +218,17 @@ public class UiManager : MonoBehaviour
         if (weapon == 0)
         {
             selectedWeapon = spear;
+            GameObject.Find("SelectedWeapon").GetComponentInChildren<Text>().text = "Spear";
         }
         if (weapon == 1)
         {
             selectedWeapon = sword;
+            GameObject.Find("SelectedWeapon").GetComponentInChildren<Text>().text = "Sword";
         }
         if (weapon == 2)
         {
             selectedWeapon = cleaver;
+            GameObject.Find("SelectedWeapon").GetComponentInChildren<Text>().text = "Cleaver";
         }
     }
 
@@ -153,21 +242,14 @@ public class UiManager : MonoBehaviour
         Instantiate(selectedWeapon, transform.position, transform.rotation);
     }
 
+    // need to fix to rotate around controller
     public void onConfirmClick()
     {
-        Vector3 currentRotation = transform.eulerAngles;
-        currentRotation = transform.eulerAngles;
-        currentRotation.y = Mathf.Lerp(currentRotation.y, currentRotation.y + 180f, Time.deltaTime * smooth);
-        transform.eulerAngles = currentRotation;
+        transform.RotateAround (transform.parent.position, transform.parent.up, 180f * Time.deltaTime);
     }
 
     public void onSettingsButtonClick()
     {
-        {
-            Vector3 currentRotation = transform.eulerAngles;
-            currentRotation = transform.eulerAngles;
-            currentRotation.y = Mathf.Lerp(currentRotation.y, currentRotation.y -180f, Time.deltaTime * smooth);
-            transform.eulerAngles = currentRotation;
-        }
+        transform.RotateAround (transform.parent.position, transform.parent.up, -180f * Time.deltaTime);
     }
 }

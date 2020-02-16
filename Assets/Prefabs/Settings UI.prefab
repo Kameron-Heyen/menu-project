@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 1258304521449930805}
   - component: {fileID: 272057930712736710}
   m_Layer: 0
-  m_Name: Volume
+  m_Name: CurrentVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2475,7 +2475,7 @@ GameObject:
   - component: {fileID: 2033223989946976608}
   - component: {fileID: 5588934771751052277}
   m_Layer: 0
-  m_Name: Skybox
+  m_Name: SelectedSkybox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
