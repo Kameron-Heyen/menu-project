@@ -29,10 +29,10 @@ public class UiManager : MonoBehaviour
     public GameObject cleaver;
 
     // Music Assets
-    public AudioSource musicSource;
-    public AudioSource musicTrack1;
-    public AudioSource musicTrack2;
-    public AudioSource musicTrack3;
+    private AudioSource musicSource;
+    public AudioClip musicTrack1;
+    public AudioClip musicTrack2;
+    public AudioClip musicTrack3;
 
     public Resolution[] resolutions;
     private GameSettings game_settings;
@@ -47,6 +47,9 @@ public class UiManager : MonoBehaviour
 
     void Awake()
     {
+        musicSource = GetComponent<AudioSource>();
+        musicSource.clip = musicTrack1;
+        musicSource.Play();
         laserPointer.PointerClick += PointerClick;
     }
 
@@ -168,26 +171,26 @@ public class UiManager : MonoBehaviour
     {
         if (music == 0)
         {
-            musicSource.Stop();
-            musicSource = musicTrack1;
-            //musicSource.pitch = .5f;
-            //musicSource.PlayClipAtPoint(clip, transform.position);
+            //musicSource.Stop();
+            musicSource.clip = musicTrack1;
+            musicSource.pitch = .5f;
+            //musicSource.PlayClipAtPoint(musicTrack1, transform.position);
             musicSource.Play();
             GameObject.Find("SelectedTrack").GetComponentInChildren<Text>().text = "Track 1";
         } else if (music == 1)
         {
-            musicSource.Stop();
-            musicSource = musicTrack2;
-            //musicSource.pitch = .5f;
-            //musicSource.PlayClipAtPoint(clip, transform.position);
+            //musicSource.Stop();
+            musicSource.clip = musicTrack2;
+            musicSource.pitch = .5f;
+            //musicSource.PlayClipAtPoint(musicTrack2, transform.position);
             musicSource.Play();
             GameObject.Find("SelectedTrack").GetComponentInChildren<Text>().text = "Track 2";
         } else if (music == 2)
         {
-            musicSource.Stop();
-            musicSource = musicTrack3;
-            //musicSource.pitch = .5f;
-            //musicSource.PlayClipAtPoint(clip, transform.position);
+            //musicSource.Stop();
+            musicSource.clip = musicTrack3;
+            musicSource.pitch = .5f;
+            //musicSource.PlayClipAtPoint(musicTrack3, transform.position);
             musicSource.Play();
             GameObject.Find("SelectedTrack").GetComponentInChildren<Text>().text = "Track 3";
         }

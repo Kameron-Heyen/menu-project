@@ -30876,14 +30876,9 @@ MonoBehaviour:
   spear: {fileID: 6100297557993773792, guid: ac0c768ec05a72f47be753c6f5804cfd, type: 3}
   sword: {fileID: 1385351280386621008, guid: a4000ae5c8431424dbbef26b0d9cc756, type: 3}
   cleaver: {fileID: 5005190091231884062, guid: 0509d6a1e229eb6419d283897bef12aa, type: 3}
-  musicSource: {fileID: 780887666708139359, guid: d82e08b499b59ef4f99eff94d5f1de22,
-    type: 3}
-  musicTrack1: {fileID: 780887666708139359, guid: d82e08b499b59ef4f99eff94d5f1de22,
-    type: 3}
-  musicTrack2: {fileID: 3150987627541182057, guid: 980713fc7893c724fa5d943bd8897c03,
-    type: 3}
-  musicTrack3: {fileID: 394669913697305287, guid: cb298da0ce0587f4c86b80808085a337,
-    type: 3}
+  musicTrack1: {fileID: 8300000, guid: 8aa44c0bd4cff574ba36309dfd009b6e, type: 3}
+  musicTrack2: {fileID: 8300000, guid: a28912ddd6f27fe449d154c750623219, type: 3}
+  musicTrack3: {fileID: 8300000, guid: 0c6a6763c788414498245d985d8548c7, type: 3}
 --- !u!1001 &3509459665343771001
 PrefabInstance:
   m_ObjectHideFlags: 0
