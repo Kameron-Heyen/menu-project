@@ -152,15 +152,15 @@ public class UiManager : MonoBehaviour
         if (newSkybox == 0)
         {
             RenderSettings.skybox = skyOne;
-            GameObject.Find("SelectedSkybox").GetComponentInChildren<Text>().text = "SB1";
+            GameObject.Find("SelectedSkybox").GetComponentInChildren<Text>().text = "Cloudy";
         } else if (newSkybox == 1)
         {
             RenderSettings.skybox = skyTwo;
-            GameObject.Find("SelectedObject").GetComponentInChildren<Text>().text = "SB2";
+            GameObject.Find("SelectedSkybox").GetComponentInChildren<Text>().text = "Sunset";
         } else if (newSkybox == 2)
         {
             RenderSettings.skybox = skyThree;
-            GameObject.Find("SelectedObject").GetComponentInChildren<Text>().text = "SB3";
+            GameObject.Find("SelectedSkybox").GetComponentInChildren<Text>().text = "Cloudy 2";
         }
     }
 

@@ -1331,7 +1331,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100%
+  m_Text: 50%
 --- !u!1 &4645815214636843608
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,7 +2743,7 @@ GameObject:
   - component: {fileID: 828996851491028097}
   - component: {fileID: 7297968187568297453}
   m_Layer: 0
-  m_Name: Track
+  m_Name: SelectedTrack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
