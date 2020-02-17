@@ -13,6 +13,8 @@ public class UiManager : MonoBehaviour
 
     // Game object
     public GameObject UiPanel;
+    public GameObject SettingsPanel;
+    public GameObject MainPanel;
 
     // materials
     public Material skyOne;
@@ -114,12 +116,12 @@ public class UiManager : MonoBehaviour
         // object selection
         else if (e.target.name == "LeftObjectButton") {
             objInt = objInt - 1;
-            if (objInt == -1) { objInt = 2; }
+            if (objInt == -1) { objInt = 1; }
             OnObjectSelection(objInt);
         }
         else if (e.target.name == "RightObjectButton") {
             objInt = objInt + 1;
-            if (objInt == 3) { objInt = 0; }
+            if (objInt == 2) { objInt = 0; }
             OnObjectSelection(objInt);
         }
 
@@ -243,22 +245,27 @@ public class UiManager : MonoBehaviour
 
     public void OnCreateObjectClick()
     {
-        Instantiate(selectedObject, transform.position, transform.rotation);
+        Vector3 rot = transform.rotation.eulerAngles;
+        rot.x = 0f;
+        rot.z = 0f;
+        Instantiate(selectedObject, (transform.position + new Vector3(5f,10f, 5f)), Quaternion.Euler(rot));
     }
 
     public void OnCreateWeaponClick()
     {
-        Instantiate(selectedWeapon, transform.position, transform.rotation);
+      Instantiate(selectedWeapon, transform.position, transform.rotation);
     }
 
     // need to fix to rotate around controller
     public void onConfirmClick()
     {
-        transform.RotateAround (transform.parent.position, transform.parent.up, 180f * Time.deltaTime);
+        MainPanel.SetActive(true);
+        SettingsPanel.SetActive(false);
     }
 
     public void onSettingsButtonClick()
     {
-        transform.RotateAround (transform.parent.position, transform.parent.up, -180f * Time.deltaTime);
+        MainPanel.SetActive(false);
+        SettingsPanel.SetActive(true);
     }
 }

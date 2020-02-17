@@ -3397,6 +3397,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 231094223}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &232683051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5923915036222538359, guid: f0dc7d0b2c6bdbc44ae3ca41978be079,
+    type: 3}
+  m_PrefabInstance: {fileID: 3412224710952991977}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &233383227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26576,6 +26582,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1886012361}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1897375912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4683109975708305166, guid: f0dc7d0b2c6bdbc44ae3ca41978be079,
+    type: 3}
+  m_PrefabInstance: {fileID: 3412224710952991977}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1901125718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30867,6 +30879,8 @@ MonoBehaviour:
   laserPointer: {fileID: 225749272}
   smooth: 5
   UiPanel: {fileID: 3412224710952991978}
+  SettingsPanel: {fileID: 232683051}
+  MainPanel: {fileID: 1897375912}
   skyOne: {fileID: 2100000, guid: c8e304140c860744783e1aa250535791, type: 2}
   skyTwo: {fileID: 2100000, guid: 9b7ca251e8646c54db0a77ae2021bf9b, type: 2}
   skyThree: {fileID: 2100000, guid: 23002981675cee84bbbebf0794b85ea2, type: 2}
