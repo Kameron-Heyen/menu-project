@@ -13,6 +13,8 @@ public class UiManager : MonoBehaviour
 
     // Game object
     public GameObject UiPanel;
+    public GameObject SettingsPanel;
+    public GameObject MainPanel;
 
     // materials
     public Material skyOne;
@@ -248,11 +250,13 @@ public class UiManager : MonoBehaviour
     // need to fix to rotate around controller
     public void onConfirmClick()
     {
-        transform.RotateAround (transform.parent.position, transform.parent.up, 180f * Time.deltaTime);
+        MainPanel.SetActive(true);
+        SettingsPanel.SetActive(false);
     }
 
     public void onSettingsButtonClick()
     {
-        transform.RotateAround (transform.parent.position, transform.parent.up, -180f * Time.deltaTime);
+        MainPanel.SetActive(false);
+        SettingsPanel.SetActive(true);
     }
 }
