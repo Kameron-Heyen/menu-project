@@ -170,18 +170,24 @@ public class UiManager : MonoBehaviour
         {
             musicSource.Stop();
             musicSource = musicTrack1;
+            //musicSource.pitch = .5f;
+            //musicSource.PlayClipAtPoint(clip, transform.position);
             musicSource.Play();
             GameObject.Find("SelectedTrack").GetComponentInChildren<Text>().text = "Track 1";
         } else if (music == 1)
         {
             musicSource.Stop();
             musicSource = musicTrack2;
+            //musicSource.pitch = .5f;
+            //musicSource.PlayClipAtPoint(clip, transform.position);
             musicSource.Play();
             GameObject.Find("SelectedTrack").GetComponentInChildren<Text>().text = "Track 2";
         } else if (music == 2)
         {
             musicSource.Stop();
             musicSource = musicTrack3;
+            //musicSource.pitch = .5f;
+            //musicSource.PlayClipAtPoint(clip, transform.position);
             musicSource.Play();
             GameObject.Find("SelectedTrack").GetComponentInChildren<Text>().text = "Track 3";
         }
