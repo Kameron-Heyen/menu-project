@@ -118,7 +118,7 @@ public class UiManager : MonoBehaviour
         }
         else if (e.target.name == "RightObjectButton") {
             objInt = objInt + 1;
-            if (objInt == 2) { objInt = 0; }
+            if (objInt == 3) { objInt = 0; }
             OnObjectSelection(objInt);
         }
 
@@ -218,7 +218,7 @@ public class UiManager : MonoBehaviour
         if (obj == 2)
         {
             selectedObject = skyScraper;
-            GameObject.Find("SelectedObject").GetComponentInChildren<Text>().text = "Skyscraper";
+            GameObject.Find("SelectedObject").GetComponentInChildren<Text>().text = "Rock";
         }
     }
 

@@ -31019,13 +31019,11 @@ MonoBehaviour:
   skyThree: {fileID: 2100000, guid: 23002981675cee84bbbebf0794b85ea2, type: 2}
   tree: {fileID: 192044, guid: 19682540d8a014522a319b1cf788aee2, type: 3}
   house: {fileID: 1000010315956650, guid: 1560075f917727c46a8546367a2f3132, type: 3}
-  skyScraper: {fileID: 100000, guid: a7d0bc61e3f0d0649b8c808d0f478b17, type: 3}
+  skyScraper: {fileID: 110610, guid: 75283e9ef15245c4aab126ec6525dd2a, type: 3}
   spear: {fileID: 6100297557993773792, guid: ac0c768ec05a72f47be753c6f5804cfd, type: 3}
   sword: {fileID: 1385351280386621008, guid: a4000ae5c8431424dbbef26b0d9cc756, type: 3}
   cleaver: {fileID: 5005190091231884062, guid: 0509d6a1e229eb6419d283897bef12aa, type: 3}
   musicSource: {fileID: 1874472569}
-  musicSource2: {fileID: 0}
-  musicSource3: {fileID: 0}
   musicTrack1: {fileID: 8300000, guid: 8aa44c0bd4cff574ba36309dfd009b6e, type: 3}
   musicTrack2: {fileID: 8300000, guid: a28912ddd6f27fe449d154c750623219, type: 3}
   musicTrack3: {fileID: 8300000, guid: 0c6a6763c788414498245d985d8548c7, type: 3}
