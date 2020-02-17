@@ -239,7 +239,7 @@ public class UiManager : MonoBehaviour
 
     public void OnCreateWeaponClick()
     {
-        Instantiate(selectedWeapon, transform.position, transform.rotation);
+      Instantiate(selectedWeapon, transform.position, transform.rotation);
     }
 
     // need to fix to rotate around controller
